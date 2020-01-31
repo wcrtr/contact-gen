@@ -50,7 +50,13 @@ def generate(count):
 		random_phone_number = fake.phone_number()
 		profile['phone_number'] = sanitize_phone_number(random_phone_number) # sanitized & formatted
 		profile['note'] = fake.paragraph(nb_sentences=3, variable_nb_sentences=True, ext_word_list=None)
-		profile['address'] = fake.address().replace('\n', ', ')
+		profile['address'] = {
+			'address_line_1': fake.street_address(),
+			'locality': fake.city(),
+			'administrative_district_level_1': fake.state_abbr(include_territories=False),
+			'postal_code': fake.zipcode(),
+			'country': fake.country_code(representation='alpha-2')
+		}
 		profile['id'] = fake.sha1()
 		profile['image_url'] = fake.image_url()
 		profiles.append(profile)
