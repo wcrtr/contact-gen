@@ -10,4 +10,8 @@ A python script that generates N user profiles. This script provides a thin wrap
 
 ## usage
 
-`python contact-gen.py 50 // Generates 50 profiles and outputs a profiles.json file in the directory the script is run`
+```
+// Generates 50 profiles and outputs a profiles.json file in the directory the script is run`
+
+python contact-gen.py 50
+```
